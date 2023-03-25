@@ -20,7 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  
  ## Time Allocation
  
- Before beginning this project, I estimated 2 hours. However, I definitely went over this time allotment, to almost three hours. While creating the table itself did not take much time, deciding how to display the similar doctors when one is selected took up the bulk of my time. Lastly, troubleshooting hosting the site live on Heroku added a bit more unforseen time commitment, however, I was able to find a solution. 
+ Before beginning this project, I estimated 2 hours. However, I definitely went over this time allotment, to almost three hours. Creating the table itself did not take much time, however, deciding how to display the similar doctors when one is selected took up the bulk of time. Lastly, troubleshooting hosting the site live on Heroku added a bit more unforseen time commitment, however, I was able to find a solution. 
  
  Given more time on this project, I would go back and create a function that sorts through all similar doctors, to display them in an order of increasing rating to decreasing rating. Other improvements I would want to make with more time would be making the modal that pops up stand out more. Finally, I would add some styling to the table for a better user experience, such as center it and the data, and spacing the cells out more across the window view.
  
