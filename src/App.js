@@ -1,16 +1,163 @@
 import React from "react";
 import { useTable, useFilters } from 'react-table' 
+import TableCell from '@mui/material/TableCell';
 
 function App() {
 
   const data = React.useMemo(() =>
     [
       {
-        name: 'Kim Parrish',
-        location: '4420 Valley Street, Garnerville, NY 10923',
-        specialty: '07/11/2020',
-        rating: '87349585892118',
-      }
+        name: 'Ola Adams',
+        location: 'Scott and White Clinic',
+        specialty: 'Internal Medicine',
+        rating: '4.8',
+      },
+      {
+        name: 'Rochelle Adams',
+        location: 'Scott and White Clinic',
+        specialty: 'Nurse Practitioner',
+        rating: '4.6',
+      },
+      {
+        name: 'Sachin Agarwal',
+        location: 'Scott and White Clinic',
+        specialty: 'Medical Oncology',
+        rating: '4.9',
+      },
+      {
+        name: 'Grace M. Akinyi-Joseph',
+        location: 'Scott and White Clinic',
+        specialty: 'Hematology/Oncology',
+        rating: '4.7',
+      },
+      {
+        name: 'Eric N. Alford',
+        location: 'Scott and White Clinic',
+        specialty: 'Family Practice',
+        rating: '4.9',
+      },
+      {
+        name: 'Katherine E. Alford',
+        location: 'Scott and White Clinic',
+        specialty: 'Internal Medicine',
+        rating: '4.4',
+      },
+      {
+        name: 'Brian T. Abbey',
+        location: 'Brazos Valley Foot Care PA',
+        specialty: 'Podiatry',
+        rating: '4.7',
+      },
+      {
+        name: 'Creed W. Abell, MD',
+        location: 'Bryan Radiology Associates',
+        specialty: 'Diagnostic Radiology',
+        rating: '4.8',
+      },
+      {
+        name: 'Kwame Ofori Affram',
+        location: 'St. Joseph Regional Health Center',
+        specialty: 'Internal Medicine',
+        rating: '4.8',
+      },
+      {
+        name: 'Julie N. Albert, DPM',
+        location: 'Brazos Valley Foot Care PA',
+        specialty: 'Podiatry',
+        rating: '4.9',
+      },
+      {
+        name: 'Amina N. Alikhan',
+        location: 'Scott and White Clinic',
+        specialty: 'Internal Medicine',
+        rating: '4.5',
+      },
+      {
+        name: 'Mir Z. Alikhan, MD',
+        location: 'Bryan Radiology Associates',
+        specialty: 'Diagnostic Radiology',
+        rating: '4.3',
+      },
+      {
+        name: 'Amanda Allen',
+        location: 'Regional Employee Assistance Program Inc.',
+        specialty: 'Nurse Practitioner',
+        rating: '4.8',
+      },
+      {
+        name: 'Russell B. Bacak, MD',
+        location: 'St. Joseph Regional Health Center',
+        specialty: 'Family Practice',
+        rating: '4.9',
+      },
+      {
+        name: 'Samuel F. Barker',
+        location: 'Scott and White Clinic',
+        specialty: 'Family Practice',
+        rating: '4.9',
+      },
+      {
+        name: 'Ashley Gwen Barnes',
+        location: 'Scott and White Clinic',
+        specialty: 'Nurse Practitioner',
+        rating: '4.9',
+      },
+      {
+        name: 'Justin B. Barrow, MD',
+        location: 'Scott and White Clinic',
+        specialty: 'Family Practice',
+        rating: '4.7',
+      },
+      {
+        name: 'Jeremiah E. Bast',
+        location: 'Regional Employee Assistance Program Inc.',
+        specialty: 'Nurse Practitioner',
+        rating: '4.6',
+      },
+      {
+        name: 'Marcus Allen Baxter',
+        location: 'Scott and White Clinic',
+        specialty: 'Podiatry',
+        rating: '5.0',
+      },
+      {
+        name: 'Svijetlana Begovic',
+        location: 'Scott and White Clinic',
+        specialty: 'Internal Medicine',
+        rating: '5.0',
+      },
+      {
+        name: 'Jaime C. Benton, MD',
+        location: 'Scott and White Clinic',
+        specialty: 'Family Practice',
+        rating: '4.4',
+      },
+      {
+        name: 'Charis Durham',
+        location: 'Kumud S. Tripathy and Associates',
+        specialty: 'Medical Oncology',
+        rating: '4.8',
+      },
+      {
+        name: 'Erin E. Fleener, MD',
+        location: 'Kumud S. Tripathy and Associates',
+        specialty: 'Medical Oncology',
+        rating: '4.9',
+      },
+      {
+        name: 'Howard Dai',
+        location: 'Scott and White Clinic',
+        specialty: 'Diagnostic Radiology',
+        rating: '4.7',
+      },
+      {
+        name: 'Alex Dalke',
+        location: 'Scott and White Clinic',
+        specialty: 'Diagnostic Radiology',
+        rating: '4.6',
+      },
+
+
     ],
     []
   )
@@ -107,7 +254,7 @@ function App() {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                return <TableCell {...cell.getCellProps()}>{cell.render('Cell')}</TableCell>
               })}
             </tr>
           )
