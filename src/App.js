@@ -1,5 +1,5 @@
 import React from "react";
-import { useTable } from "react-table";
+import { useTable, useFilters } from 'react-table' 
 
 function App() {
 
@@ -77,6 +77,13 @@ function App() {
     []
   )
 
+  const defaultColumn = React.useMemo(
+    () => ({
+      Filter: TextFilter,
+    }),
+    []
+   )
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -87,8 +94,26 @@ function App() {
     {
       columns,
       data,
-    }
+      defaultColumn
+    },
+    useFilters
   )
+
+  function TextFilter({
+    column: { filterValue, preFilteredRows, setFilter },
+   }) {
+    const count = preFilteredRows.length
+   
+    return (
+      <input
+        value={filterValue || ''}
+        onChange={e => {
+          setFilter(e.target.value || undefined)
+        }}
+        placeholder={`Browse ${count} records...`}
+      />
+    )
+   }
 
   return (
     <table {...getTableProps()}>
@@ -96,7 +121,17 @@ function App() {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              <th {...column.getHeaderProps()}
+                style={{
+                  borderBottom: 'solid 3px black',
+                  background: 'white',
+                  color: 'black',
+                  fontWeight: 'bold',
+                }}
+              >
+                {column.render('Header')}
+                <div>{column.canFilter ? column.render('Filter') : null}</div>
+              </th>
             ))}
           </tr>
         ))}
