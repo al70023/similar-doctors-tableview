@@ -2,69 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+1. For this tableview, when a row with a doctor is clicked, a modal will appear at the bottom with the doctor's info, as well as similar doctors on the list.
+2. Users can also browse through each category of the table by using the filter at the top of each column in the table.
 
-### `npm start`
+## Assumptions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Similar doctors displayed are those in the same specialty area as the one clicked.
+2. The ordering of the similar doctors is as is in the table, not by rating or alphabetical
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Used
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ https://www.medicare.gov/care-compare/results?searchType=Physician&page=1&query=Diagnostic%20radiology&city=College%20Station&state=TX&zipcode=77840&radius=15&physicianSpecialty=Diagnostic%2520radiology&sort=closest&tealiumEventAction=Universal%20Header%20-%20SEARCH_TYPE%20-%20Search&tealiumSearchLocation=search%20bar%20-%20suggested%20search%20result
+ 
+ (Doctor ratings were made up for this project)
+ 
+ ## Time Allocation
+ 
+ Before beginning this project, I estimated 2 hours. However, I definitely went over this time allotment, to almost three hours. While creating the table itself did not take much time, deciding how to display the similar doctors when one is selected took up the bulk of my time. Lastly, troubleshooting hosting the site live on Heroku added a bit more unforseen time commitment, however, I was able to find a solution. 
+ 
+ Given more time on this project, I would go back and create a function that sorts through all similar doctors, to display them in an order of increasing rating to decreasing rating. Other improvements I would want to make with more time would be making the modal that pops up stand out more. Finally, I would add some styling to the table for a better user experience, such as center it and the data, and spacing the cells out more across the window view.
+ 
+ ## Site hosting
+ 
+ https://similar-doctors.herokuapp.com/
