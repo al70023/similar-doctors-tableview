@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { useTable, useFilters } from 'react-table' 
 import TableCell from '@mui/material/TableCell';
+import { Modal, Button } from 'react-bootstrap'
 
 function App() {
 
@@ -165,7 +166,7 @@ function App() {
   const columns = React.useMemo(
     () => [
       {
-        Header: ' ',
+        Header: 'Similar Doctors',
         columns: [
           {
             Header: 'Name',
@@ -218,7 +219,7 @@ function App() {
    
     return (
       <input
-        value={filterValue || ''}
+        value={filterValue || '' }
         onChange={e => {
           setFilter(e.target.value || undefined)
         }}
@@ -227,7 +228,57 @@ function App() {
     )
    }
 
+   const [modalInfo, setModalInfo] = useState([]);
+   const [showModal, setShowModal] = useState(false);
+   const[similarDoctors, setSimilarDoctors] = useState();
+
+   const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
+
+   const toggleTrueFalse = (info) => {
+    setModalInfo(info);
+    setShowModal(handleShow); 
+   };
+
+   useEffect(() => {
+    var similarDoctors = "";
+    var i=0;
+    Object.values(data).map((value, index) => {
+      if (value.specialty === modalInfo.specialty && value.name != modalInfo.name) {
+        console.log(value);
+        similarDoctors += value.name + "  (" + value.rating + "),  ";
+      }
+    })
+    
+    setSimilarDoctors(similarDoctors.substring(0,similarDoctors.length-3));
+  }, [modalInfo]);
+
+   const ModalContent = () => {
+    return(
+      <Modal show={show} onHide ={handleClose}>
+        <Modal.Header><br/>
+          <Modal.Title>Name: {modalInfo.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Location: {modalInfo.location} <br/>
+          Specialty: {modalInfo.specialty} <br/>
+          Rating: {modalInfo.rating} <br/><br/><br/>
+          Similar Doctors:<br/>
+          {similarDoctors}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )
+   }
+
   return (
+    <div>
+    {show ? <ModalContent /> : null} 
     <table {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
@@ -252,7 +303,7 @@ function App() {
         {rows.map(row => {
           prepareRow(row)
           return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} onClick={() => toggleTrueFalse(row.original)}>
               {row.cells.map(cell => {
                 return <TableCell {...cell.getCellProps()}>{cell.render('Cell')}</TableCell>
               })}
@@ -261,6 +312,7 @@ function App() {
         })}
       </tbody>
     </table>
+    </div>
   )
 }
 
